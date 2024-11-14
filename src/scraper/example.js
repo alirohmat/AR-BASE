@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 
 const example = async (url) => {
     try {
@@ -20,13 +20,4 @@ const example = async (url) => {
     }
 };
 
-export default example
-/* 
- * Example Usage 
- * Scraper Auto Loader 
- */
-
-/* 
-scrapers.scraperExample("https://akanebot.xyz")
-  .then(console.log)
-*/  
+export default example;
