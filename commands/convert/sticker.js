@@ -1,7 +1,12 @@
+import ffmpegPath from 'ffmpeg-static'; // Mengimpor ffmpeg-static
+import ffmpeg from 'fluent-ffmpeg';
+
+ffmpeg.setFfmpegPath(ffmpegPath); // Menetapkan path ffmpeg dari ffmpeg-static
+
 export default {
   cmd: ["s", "sticker", "stiker"],
   name: "sticker",
-  cetegory: "convert",
+  category: "convert",
   description: "Convert image/video to sticker",
   execute: async (m, { client }) => {
     const quoted = m.isQuoted ? m.quoted : m;
@@ -23,6 +28,7 @@ export default {
         exif.packPublish = author ? author : "";
       }
 
+      // Mengonversi gambar/video ke stiker
       m.reply(buffer, { asSticker: true, ...exif });
     } else if (m.mentions[0]) {
       m.reply("wait");
