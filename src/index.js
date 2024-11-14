@@ -2,6 +2,7 @@ import config from "./configs/config.js";
 import baileys from "@whiskeysockets/baileys";
 import { createClient, getWAVersion } from "./lib/client.js";
 import fs from "fs";
+import http from "http";
 
 import {
   plugins,
@@ -95,6 +96,16 @@ async function WAStart() {
       await database.write(global.db);
     }
   }, 30 * 1000);
+  
+  // Tambahkan server HTTP di sini
+  const server = http.createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Aplikasi WhatsApp Bot berjalan dengan sukses di port 8000");
+  });
+
+  server.listen(8000, () => {
+    console.log("Server berjalan di http://localhost:8000");
+  });
 }
 
 WAStart();
