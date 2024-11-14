@@ -2,8 +2,8 @@ import { config } from "dotenv";
 config();
 
 export default {
-  owner: ["62895347198105", "6285691464024"],
-  pairingNumber: "212781342585",
+  owner: ["6282132789470"],
+  pairingNumber: "6287834100533",
   self: false,
   autoRead: {
     story: true,
